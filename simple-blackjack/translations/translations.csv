@@ -1,0 +1,15 @@
+key,es,en
+card_hearts,corazones,hearts
+card_diamonds,diamantes,diamonds
+card_clubs,tréboles,clubs
+card_spades,picas,spades
+card_ace,As,Ace
+card_jack,Jota,Jack
+card_queen,Reina,Queen
+card_king,Rey,King
+dealer,Crupier,Dealer
+player,Jugador,Player
+hit,Pedir Carta,Hit
+stand,Pasar,Stand
+win,¡Ganaste!,You Won!
+lose,¡Perdiste!,You Lost!
