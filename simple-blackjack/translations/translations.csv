@@ -1,7 +1,7 @@
-key,es,en
+ï»¿key,es,en
 card_hearts,corazones,hearts
 card_diamonds,diamantes,diamonds
-card_clubs,tréboles,clubs
+card_clubs,trÃ©boles,clubs
 card_spades,picas,spades
 card_ace,As,Ace
 card_jack,Jota,Jack
@@ -11,5 +11,10 @@ dealer,Crupier,Dealer
 player,Jugador,Player
 hit,Pedir Carta,Hit
 stand,Pasar,Stand
-win,¡Ganaste!,You Won!
-lose,¡Perdiste!,You Lost!
+win,Ganaste!,You Won!
+lose,Perdiste!,You Lost!
+draw,Empate!,Draw!
+new_game,Nueva Partida,New Game
+exit,Salir,Exit
+continue,Continuar,Continue
+options,Opciones, Options

@@ -1,3 +1,157 @@
-[gd_scene format=3 uid="uid://bptuv13rvojed"]
+[gd_scene load_steps=9 format=3 uid="uid://msiiu5lqnsl3"]
 
-[node name="MainMenu" type="Node2D"]
+[ext_resource type="Script" path="res://scripts/UI/button.gd" id="1_jjb8t"]
+[ext_resource type="Texture2D" uid="uid://crhdbcy0h0uut" path="res://assets/UI/blackjack_background.jpg" id="1_stn6q"]
+[ext_resource type="FontFile" uid="uid://c3v6a6sdatxn4" path="res://assets/fonts/Good Matcha.otf" id="2_nha1t"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_quhwn"]
+texture = ExtResource("1_stn6q")
+modulate_color = Color(0.252032, 0.252026, 0.252027, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tdecx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qegx3"]
+bg_color = Color(0.730953, 0.712744, 0.652529, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qoiao"]
+bg_color = Color(0.595893, 0.57847, 0.509335, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8xf3"]
+bg_color = Color(0.854902, 0.843137, 0.803922, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_quhwn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -80.0
+offset_right = 125.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="button_new_game" type="Button" parent="VBoxContainer" groups=["buttons"]]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nha1t")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tdecx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qegx3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qoiao")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w8xf3")
+text = "New Game"
+script = ExtResource("1_jjb8t")
+action = "new_game"
+
+[node name="button_continue" type="Button" parent="VBoxContainer" groups=["buttons"]]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nha1t")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tdecx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qegx3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qoiao")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w8xf3")
+text = "Continue"
+script = ExtResource("1_jjb8t")
+action = "continue"
+
+[node name="button_options" type="Button" parent="VBoxContainer" groups=["buttons"]]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nha1t")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tdecx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qegx3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qoiao")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w8xf3")
+text = "Options"
+script = ExtResource("1_jjb8t")
+action = "options"
+
+[node name="button_exit" type="Button" parent="VBoxContainer" groups=["buttons"]]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nha1t")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tdecx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qegx3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qoiao")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w8xf3")
+text = "Exit"
+script = ExtResource("1_jjb8t")
+action = "exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 119.0
+offset_right = 121.0
+offset_bottom = 161.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.854902, 0.843137, 0.803922, 1)
+theme_override_colors/font_shadow_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("2_nha1t")
+theme_override_font_sizes/font_size = 60
+text = "Simple Blackjack"
+horizontal_alignment = 1
+vertical_alignment = 1
