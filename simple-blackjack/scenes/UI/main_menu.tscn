@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://msiiu5lqnsl3"]
+[gd_scene load_steps=10 format=3 uid="uid://msiiu5lqnsl3"]
 
-[ext_resource type="Script" path="res://scripts/UI/button.gd" id="1_jjb8t"]
+[ext_resource type="Script" path="res://scripts/UI/main_menu.gd" id="1_7dcyn"]
 [ext_resource type="Texture2D" uid="uid://crhdbcy0h0uut" path="res://assets/UI/blackjack_background.jpg" id="1_stn6q"]
 [ext_resource type="FontFile" uid="uid://c3v6a6sdatxn4" path="res://assets/fonts/Good Matcha.otf" id="2_nha1t"]
+[ext_resource type="PackedScene" uid="uid://btbpdef3eheip" path="res://scenes/UI/option_menu.tscn" id="5_qn04o"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_quhwn"]
 texture = ExtResource("1_stn6q")
@@ -30,6 +31,11 @@ shadow_offset = Vector2(0, 3.4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8xf3"]
 bg_color = Color(0.854902, 0.843137, 0.803922, 1)
+border_width_left = 25
+border_width_top = 8
+border_width_right = 25
+border_width_bottom = 8
+border_blend = true
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -44,6 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7dcyn")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -54,24 +61,50 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_quhwn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -124.0
-offset_top = -80.0
-offset_right = 125.0
-offset_bottom = 149.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 15
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
-[node name="button_new_game" type="Button" parent="VBoxContainer" groups=["buttons"]]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_constants/separation = 60
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.854902, 0.843137, 0.803922, 1)
+theme_override_colors/font_shadow_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("2_nha1t")
+theme_override_font_sizes/font_size = 60
+text = "Simple Blackjack"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Separator" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="button_new_game" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -83,12 +116,12 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_qegx3")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qoiao")
 theme_override_styles/normal = SubResource("StyleBoxFlat_w8xf3")
 text = "New Game"
-script = ExtResource("1_jjb8t")
-action = "new_game"
 
-[node name="button_continue" type="Button" parent="VBoxContainer" groups=["buttons"]]
+[node name="Separator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+
+[node name="button_continue" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -100,12 +133,12 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_qegx3")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qoiao")
 theme_override_styles/normal = SubResource("StyleBoxFlat_w8xf3")
 text = "Continue"
-script = ExtResource("1_jjb8t")
-action = "continue"
 
-[node name="button_options" type="Button" parent="VBoxContainer" groups=["buttons"]]
+[node name="Separator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+
+[node name="button_options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -117,12 +150,12 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_qegx3")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qoiao")
 theme_override_styles/normal = SubResource("StyleBoxFlat_w8xf3")
 text = "Options"
-script = ExtResource("1_jjb8t")
-action = "options"
 
-[node name="button_exit" type="Button" parent="VBoxContainer" groups=["buttons"]]
+[node name="Separator4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+
+[node name="button_exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -134,24 +167,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_qegx3")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qoiao")
 theme_override_styles/normal = SubResource("StyleBoxFlat_w8xf3")
 text = "Exit"
-script = ExtResource("1_jjb8t")
-action = "exit"
 
-[node name="Label" type="Label" parent="."]
+[node name="OptionMenu" parent="." instance=ExtResource("5_qn04o")]
+visible = false
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -120.0
-offset_top = 119.0
-offset_right = 121.0
-offset_bottom = 161.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.854902, 0.843137, 0.803922, 1)
-theme_override_colors/font_shadow_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
-theme_override_constants/shadow_offset_y = 10
-theme_override_fonts/font = ExtResource("2_nha1t")
-theme_override_font_sizes/font_size = 60
-text = "Simple Blackjack"
-horizontal_alignment = 1
-vertical_alignment = 1

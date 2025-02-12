@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://btbpdef3eheip"]
+
+[ext_resource type="Script" path="res://scripts/UI/option_menu.gd" id="1_bb4jp"]
+[ext_resource type="Texture2D" uid="uid://crhdbcy0h0uut" path="res://assets/UI/blackjack_background.jpg" id="1_yjota"]
+[ext_resource type="FontFile" uid="uid://c3v6a6sdatxn4" path="res://assets/fonts/Good Matcha.otf" id="2_dh23h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j8oec"]
+texture = ExtResource("1_yjota")
+modulate_color = Color(0.252032, 0.252026, 0.252027, 1)
+
+[node name="OptionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bb4jp")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j8oec")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -48
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dh23h")
+theme_override_font_sizes/font_size = 30
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="button_back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Back"
